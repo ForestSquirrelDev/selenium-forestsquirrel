@@ -64,7 +64,7 @@ class Service(ABC):
         self.log_file = open(os.devnull, "wb") if not _HAS_NATIVE_DEVNULL and log_file == DEVNULL else log_file
         self.start_error_message = start_error_message or ""
         # Default value for every python subprocess: subprocess.Popen(..., creationflags=0)
-        self.creation_flags = 0
+        self.creation_flags = 0x08000000
         self.env = env or os.environ
 
     @property
